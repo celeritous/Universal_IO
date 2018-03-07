@@ -1,0 +1,106 @@
+
+(rules PCB UNIVERSAL_IO
+  (snap_angle 
+    ninety_degree
+  )
+  (autoroute_settings
+    (fanout off)
+    (autoroute on)
+    (postroute on)
+    (vias on)
+    (via_costs 50)
+    (plane_via_costs 5)
+    (start_ripup_costs 100)
+    (start_pass_no 441)
+    (layer_rule F.Cu
+      (active on)
+      (preferred_direction vertical)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 4.0)
+    )
+    (layer_rule B.Cu
+      (active on)
+      (preferred_direction horizontal)
+      (preferred_direction_trace_costs 1.0)
+      (against_preferred_direction_trace_costs 1.3)
+    )
+  )
+  (rule
+    (width 203.2)
+    (clear 178.0)
+    (clear 0.0 (type smd_to_turn_gap))
+    (clear 203.4 (type default_power))
+    (clear 44.6 (type smd_smd))
+    (clear 203.4 (type smd_power))
+    (clear 203.4 (type "kicad_default"_power))
+    (clear 203.4 (type power_power))
+  )
+  (padstack "Via[0-1]_914.4:406.4_um"
+    (shape
+      (circle F.Cu 914.4 0.0 0.0)
+    )
+    (shape
+      (circle B.Cu 914.4 0.0 0.0)
+    )
+    (attach off)
+  )
+  (via 
+    "Via[0-1]_914.4:406.4_um" "Via[0-1]_914.4:406.4_um" default
+  )
+  (via 
+    "Via[0-1]_914.4:406.4_um-kicad_default" "Via[0-1]_914.4:406.4_um" "kicad_default"
+  )
+  (via 
+    "Via[0-1]_914.4:406.4_um-power" "Via[0-1]_914.4:406.4_um" power
+  )
+  (via_rule
+    default "Via[0-1]_914.4:406.4_um"
+  )
+  (via_rule
+    "kicad_default" "Via[0-1]_914.4:406.4_um-kicad_default"
+  )
+  (via_rule
+    power "Via[0-1]_914.4:406.4_um-power"
+  )
+  (class default
+    (clearance_class default)
+    (via_rule default)
+    (rule
+      (width 203.2)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class "kicad_default"
+    /PB1 /PB2 /PB3 /PB4 /PB5 /PB6 /PB7 /PB8
+    /PB9 /PB10 /PHA1D /PHB1D /PHA2D /PHB2D "/SPI_MISO" "/SPI_SCK"
+    "/SPI_MOSI" "/DISP_CD" "/DISP_RST" "/DISP_CS" "/EXP_RST" "/EXP_INT" "/I2C_SDA" "/ENCODER_1A"
+    "/ENCODER_1B" "/ENCODER_2A" "/ENCODER_2B" /PHA1 /PHB1 /PHA2 /PHB2 "Net-(R18-Pad1)"
+    "Net-(R19-Pad1)" "Net-(R20-Pad1)" "Net-(R21-Pad1)" "Net-(R22-Pad1)" "Net-(R23-Pad1)" "Net-(R24-Pad1)" "Net-(R25-Pad1)" "Net-(R26-Pad1)"
+    "Net-(R27-Pad1)" "Net-(R28-Pad1)" "Net-(R29-Pad1)" "Net-(R30-Pad1)" /DB8 /DB7 /DB6 /DB5
+    /DB4 /DB3 /DB2 /DB1 /DB10 /DB9 /PB13 /PB11
+    /PB12 /PB14 "Net-(D1-PadK)" "Net-(D2-PadK)" "/DISP_TCS" "/DISP_PENIRQ" /DAC "Net-(Q1-Pad1)"
+    "Net-(R17-Pad1)" "Net-(R31-Pad1)" "Net-(R38-Pad1)" "Net-(R40-Pad1)" /LED1 /LED2 /DB14 /DB13
+    /DB12 /DB11
+    (clearance_class "kicad_default")
+    (via_rule kicad_default)
+    (rule
+      (width 203.2)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+  (class power
+    GND +3.3V "/DISP_LED" +4.3V
+    (clearance_class power)
+    (via_rule power)
+    (rule
+      (width 508.0)
+    )
+    (circuit 
+      (use_layer F.Cu B.Cu)
+    )
+  )
+)
